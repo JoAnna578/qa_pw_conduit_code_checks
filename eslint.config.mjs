@@ -1,12 +1,18 @@
 import js from '@eslint/js';
-import globals from 'globals';
 import { defineConfig } from 'eslint/config';
+import globals from 'globals';
+import eslintPluginPlaywright from 'eslint-plugin-playwright';
 
 export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs}'],
-    plugins: { js },
-    extends: ['js/recommended'],
-    languageOptions: { globals: globals.node },
+    languageOptions: {
+      globals: { ...globals.node, test: 'readonly', expect: 'readonly' },
+    },
+    plugins: {
+      playwright: eslintPluginPlaywright,
+    },
+    rules: {},
+    ...js.configs.recommended,
   },
 ]);
