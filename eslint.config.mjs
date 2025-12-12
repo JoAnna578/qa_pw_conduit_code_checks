@@ -7,12 +7,19 @@ export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
-      globals: { ...globals.node, test: 'readonly', expect: 'readonly' },
+      globals: {
+        ...globals.node,
+        test: 'readonly',
+        expect: 'readonly',
+        describe: 'readonly',
+      },
     },
     plugins: {
       playwright: eslintPluginPlaywright,
     },
-    rules: {},
+    rules: {
+      // Możesz dodać własne reguły ESLint tutaj
+    },
     ...js.configs.recommended,
   },
 ]);
