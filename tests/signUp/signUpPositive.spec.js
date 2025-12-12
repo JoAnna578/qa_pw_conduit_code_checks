@@ -13,7 +13,7 @@ test.describe('Sign up positive tests', () => {
     homePage = new HomePage(page);
 
     user = {
-      username: `${faker.person.firstName()}_${faker.person.lastName()}`,
+      username: faker.internet.userName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
     };
